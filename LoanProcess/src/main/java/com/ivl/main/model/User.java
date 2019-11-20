@@ -21,6 +21,15 @@ public class User {
 	private String email;
 	private String panNo;
 	private long adharNo;
+	private String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;
