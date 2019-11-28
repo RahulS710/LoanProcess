@@ -1,17 +1,21 @@
 package com.ivl.main.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="users")
+@Table(name = "users")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int userId;
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -21,7 +25,30 @@ public class User {
 	private String email;
 	private String panNo;
 	private long adharNo;
+	private double loanAmount;
+
+	public double getLoanAmount() {
+		return loanAmount;
+	}
+
+	public void setLoanAmount(double loanAmount) {
+		this.loanAmount = loanAmount;
+	}
+
 	private String password;
+	private int missingEmi;
+	@OneToMany
+	private List<LoanDetails> loanId;
+	@OneToOne
+	private Cibil cid;
+
+	public int getMissingEmi() {
+		return missingEmi;
+	}
+
+	public void setMissingEmi(int missingEmi) {
+		this.missingEmi = missingEmi;
+	}
 
 	public String getPassword() {
 		return password;
@@ -31,12 +58,12 @@ public class User {
 		this.password = password;
 	}
 
-	public int getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getFirstName() {
@@ -111,5 +138,29 @@ public class User {
 		this.adharNo = adharNo;
 	}
 
-	
+	public List<LoanDetails> getLoanId() {
+		return loanId;
+	}
+
+	public void setLoanId(List<LoanDetails> loanId) {
+		this.loanId = loanId;
+	}
+
+	public Cibil getCid() {
+		return cid;
+	}
+
+	public void setCid(Cibil cid) {
+		this.cid = cid;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", userName="
+				+ userName + ", address=" + address + ", contactNo=" + contactNo + ", enquiryDescription="
+				+ enquiryDescription + ", email=" + email + ", panNo=" + panNo + ", adharNo=" + adharNo
+				+ ", loanAmount=" + loanAmount + ", password=" + password + ", missingEmi=" + missingEmi + ", loanId="
+				+ loanId + ", cid=" + cid + "]";
+	}
+
 }

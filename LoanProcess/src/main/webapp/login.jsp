@@ -21,7 +21,7 @@
 <div class="col" style="width: 200px;height: 25px;background-color: blue;float: right;text-align: center;margin-right: 50px ">
 	<a href="/Home.jsp" style="color: white;text-align: center;">Register If Not Registered</a>
 </div>
-	<form action="/user" method="post">
+	<form action="/login" method="post">
 		<section>
 			<div class="container">
 				<div class="row justify-content-center">
@@ -35,14 +35,14 @@
 
 						<div class="row align-items-center">
 							<div class="col mt-4">
-								<input type="text" class="form-control" placeholder="User Name">
+								<input type="text" class="form-control" placeholder="User Name" name="un">
 							</div>
 						</div>
 
 						<div class="row align-items-center mt-4">
 							<div class="col">
 								<input type="password" class="form-control"
-									placeholder="Password">
+									placeholder="Password" name="pass">
 							</div>
 
 						</div>

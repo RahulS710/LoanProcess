@@ -7,4 +7,5 @@ public interface Iuser {
 	public void registerUserData(User user);
 	public User getSingleUser(int id);
 	public User getSingleUserData(long adharNo);
+	public User CheckcibilScore(User user);
 }

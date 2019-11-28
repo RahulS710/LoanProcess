@@ -102,6 +102,7 @@
 	</section>
 
 </form>
+<h1><a href="/jsp/LoanDetail.jsp">LoAN</a></h1>
 
 <script type="text/javascript">
 
