@@ -39,22 +39,22 @@
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="Last Name">
+							<input type="text" class="form-control" placeholder="Last Name" name="lname">
 						</div>
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="User Name">
+							<input type="text" class="form-control" placeholder="User Name" name="username">
 						</div>
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="Address">
+							<input type="text" class="form-control" placeholder="Address" name="address">
 						</div>
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="Contact No">
+							<input type="text" class="form-control" placeholder="Contact No" name="contactno">
 						</div>
 					</div>
 					<div class="row align-items-center">
@@ -65,19 +65,19 @@
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="Pan No">
+							<input type="text" class="form-control" placeholder="Pan No" name="panno">
 						</div>
 					</div>
 					<div class="row align-items-center">
 						<div class="col mt-4">
-							<input type="text" class="form-control" placeholder="Aadhar No">
+							<input type="text" class="form-control" placeholder="Aadhar No" name="aadharno">
 						</div>
 					</div>
 
 
 					<div class="row align-items-center mt-4">
 						<div class="col">
-							<input type="email" class="form-control" placeholder="Email">
+							<input type="email" class="form-control" placeholder="Email" name="email">
 						</div>
 					</div>
 <!-- 					<div class="row align-items-center mt-4">

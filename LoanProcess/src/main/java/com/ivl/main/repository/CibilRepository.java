@@ -7,7 +7,7 @@ import com.ivl.main.model.Cibil;
 @Repository
 public interface CibilRepository extends CrudRepository<Cibil, Integer>
 {
-	public Cibil findById(int id);
+	public Cibil findByCid(int cid);
 
 
 }

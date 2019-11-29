@@ -26,7 +26,7 @@ public class UserImpl implements Iuser {
 	@Override
 	public User getSingleUser(int id) {
 
-		User getData = userRepo.findById(id);
+		User getData = userRepo.findByUserId(id);
 		return getData;
 	}
 

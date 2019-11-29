@@ -18,7 +18,7 @@
 
 <body>
 	<div class="col"style="width: 100%; height: 155px; background-color: blue; float: right; text-align: center; background-color: gray;">
-		<h1 style="float: left">${msg.firstName}</h1>
+		<h1 style="float: left">Welcome&nbsp;${msg.firstName}</h1>
 		
 	</div>
 	<form action="/user" method="post">

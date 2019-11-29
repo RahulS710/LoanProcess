@@ -18,7 +18,7 @@ public class CibilImpl implements Icibil
 	public Cibil getCibilById(int id) 
 	{
 		
-		return cibilRepo.findById(id);
+		return cibilRepo.findByCid(id);
 	}
 
 	

@@ -13,6 +13,7 @@ import org.passay.PasswordGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,9 +22,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ivl.main.constant.Constant;
 import com.ivl.main.model.User;
 import com.ivl.main.service.Iuser;
+import com.ivl.main.util.EmailNotificationService;
 
 @Controller
 @CrossOrigin("*")
@@ -34,6 +35,8 @@ public class EnquiryController {
 
 	@Autowired
 	Iuser users;
+	@Autowired
+	EmailNotificationService notificationService;
 
 	@RequestMapping("/")
 	public String page() {
@@ -41,19 +44,30 @@ public class EnquiryController {
 	}
 
 	@RequestMapping(path = "/user")
-	public String registredData(@RequestParam("fname") String firstName) {
+	public String registredData(@RequestParam("fname") String firstName, @RequestParam("email") String email,
+			@RequestParam("aadharno") long aadharno, @RequestParam("lname") String lname,
+			@RequestParam("username") String username, @RequestParam("address") String address,
+			@RequestParam("contactno") String contactno, @RequestParam("panno") String panno) {
 		logger.info(firstName);
 		User user = new User();
 		user.setFirstName(firstName);
-		String letters = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789+@";
-		String pw = "";
-		for (int i = 0; i < Constant.PASSWORD_LENGTH; i++) {
-			int index = (int) (RANDOM.nextDouble() * letters.length());
-			pw += letters.substring(index, index + 1);
-		}
 		user.setPassword(generateRandomPassword());
+		user.setEmail(email);
+		user.setAdharNo(aadharno);
+		user.setAddress(address);
+		user.setContactNo(contactno);
+		user.setPanNo(panno);
+		user.setLastName(lname);
+		user.setUserName(username);
 		users.registerUserData(user);
-		logger.info("Registered User" + user.toString());
+		try {
+			System.out.println("In try---------");
+			notificationService.sendNotification(user);
+
+		} catch (MailException e) {
+			logger.info("Error message......." + e.getMessage());
+		}
+		// logger.info("Registered User" + user.toString());
 		return "login";
 	}
 
