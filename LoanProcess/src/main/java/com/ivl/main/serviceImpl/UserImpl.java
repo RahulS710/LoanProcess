@@ -27,10 +27,8 @@ public class UserImpl implements Iuser {
 
 	@Override
 	public User getSingleUserData(long adharNo) {
-		User getCibilScore=userRepo.findByadharNo(adharNo);
+		User getCibilScore = userRepo.findByadharNo(adharNo);
 		return getCibilScore;
 	}
-
-
 
 }
